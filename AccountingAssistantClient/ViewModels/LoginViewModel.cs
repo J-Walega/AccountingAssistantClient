@@ -13,14 +13,8 @@ namespace AccountingAssistantClient.ViewModels
     {
         private string _login;
         private string _password;
-        private ILoginRequest _loginRequest;
 
         private new readonly LoginRequest request = new LoginRequest();
-
-        public LoginViewModel(ILoginRequest loginRequest)
-        {
-            _loginRequest = loginRequest;
-        }
 
         public string Login
         {

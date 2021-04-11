@@ -6,12 +6,13 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using AccountingAssistantClient.Models;
 
 namespace AccountingAssistantClient.Requests
 {
-    public class LoginRequest
+    public class LoginRequest : ILoginRequest
     {
-        public HttpClient Client { get; set; }
+        private HttpClient Client;
 
         LoginRequest()
         {
@@ -28,7 +29,7 @@ namespace AccountingAssistantClient.Requests
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task Login(string login, string password)
+        public async Task<AuthenticatedUser> Login(string login, string password)
         {
             var data = new FormUrlEncodedContent(new[]
             {
@@ -40,7 +41,12 @@ namespace AccountingAssistantClient.Requests
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<string>();
+                    var result = await response.Content.ReadAsAsync<AuthenticatedUser>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
                 }
             }
         }

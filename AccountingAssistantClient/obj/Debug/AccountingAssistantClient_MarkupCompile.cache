@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projekty\AccountingAssistant\AccountingAssistantClient\obj\Debug\
+D:\Projekty\AccountAssistantClient\AccountingAssistantClient\obj\Debug\
 AccountingAssistantClient
 none
 false
 DEBUG;TRACE
-D:\Projekty\AccountingAssistant\AccountingAssistantClient\App.xaml
+D:\Projekty\AccountAssistantClient\AccountingAssistantClient\App.xaml
 2605011186
 
-101890622341
-124-327131371
+13-1107051300
+136-1938700430
 Views\LoginView.xaml;Views\MainView.xaml;
 
 False

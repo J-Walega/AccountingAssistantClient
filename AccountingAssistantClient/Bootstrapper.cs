@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using AccountingAssistantClient.PasswordHelper;
 using AccountingAssistantClient.Requests;
 using AccountingAssistantClient.ViewModels;
 using Caliburn.Micro;
@@ -17,6 +19,11 @@ namespace AccountingAssistantClient
         public Bootstrapper()
         {
             Initialize();
+
+            ConventionManager.AddElementConvention<PasswordBox>(
+            PasswordBoxHelper.BoundPasswordProperty,
+            "Password",
+            "PasswordChanged");
         }
 
         protected override void Configure()

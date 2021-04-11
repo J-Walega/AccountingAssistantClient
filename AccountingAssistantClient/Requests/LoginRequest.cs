@@ -14,7 +14,7 @@ namespace AccountingAssistantClient.Requests
     {
         private HttpClient Client;
 
-        LoginRequest()
+        public LoginRequest()
         {
             CreateClient();
         }

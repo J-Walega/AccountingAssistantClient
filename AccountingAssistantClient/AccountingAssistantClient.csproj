@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="InvoiceTemplate\BaseInvoice.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="PasswordHelper\PasswordBoxHelper.cs" />
     <Compile Include="Requests\ILoginRequest.cs" />
     <Compile Include="Requests\LoginRequest.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

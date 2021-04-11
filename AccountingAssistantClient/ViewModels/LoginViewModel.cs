@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AccountingAssistantClient.Requests;
 using Caliburn.Micro;
 
@@ -10,23 +11,25 @@ namespace AccountingAssistantClient.ViewModels
 {
     public class LoginViewModel : Screen
     {
-        private string _email;
+        private string _login;
         private string _password;
         private ILoginRequest _loginRequest;
+
+        private new readonly LoginRequest request = new LoginRequest();
 
         public LoginViewModel(ILoginRequest loginRequest)
         {
             _loginRequest = loginRequest;
         }
 
-        public string Email
+        public string Login
         {
-            get { return _email; }
+            get { return _login; }
 
             set
             {
-                _email = value;
-                NotifyOfPropertyChange(() => Email);
+                _login = value;
+                NotifyOfPropertyChange(() => Login);
             }
         }
 
@@ -45,11 +48,11 @@ namespace AccountingAssistantClient.ViewModels
         {
             try
             {
-                var result = await _loginRequest.Login(Email, Password);
+                var result = await request.Login(Login, Password);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
     }

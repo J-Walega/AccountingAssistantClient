@@ -14,7 +14,7 @@ namespace AccountingAssistantClient.ViewModels
         private string _login;
         private string _password;
 
-        private new readonly LoginRequest request = new LoginRequest();
+        private readonly LoginRequest request = new LoginRequest();
 
         public string Login
         {

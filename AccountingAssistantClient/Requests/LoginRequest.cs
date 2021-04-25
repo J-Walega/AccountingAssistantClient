@@ -26,18 +26,19 @@ namespace AccountingAssistantClient.Requests
             Client = new HttpClient();
             Client.BaseAddress = new Uri(api);
             Client.DefaultRequestHeaders.Accept.Clear();
-            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
         }
 
         public async Task<AuthenticatedUser> Login(string login, string password)
         {
+
             var data = new FormUrlEncodedContent(new[]
             {
-                new KeyValuePair<string, string>("login", login),
+                new KeyValuePair<string, string>("email", login),
                 new KeyValuePair<string, string>("password", password)
             });
 
-            using (HttpResponseMessage response = await Client.PostAsync("/Token", data))
+            using (HttpResponseMessage response = await Client.PostAsync("/api/auth/login", data))
             {
                 if (response.IsSuccessStatusCode)
                 {

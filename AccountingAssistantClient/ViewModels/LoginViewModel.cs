@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using AccountingAssistantClient.Models;
 using AccountingAssistantClient.Requests;
 using Caliburn.Micro;
 
@@ -43,6 +44,12 @@ namespace AccountingAssistantClient.ViewModels
             try
             {
                 var result = await request.Login(Login, Password);
+                AuthenticatedUser loggedUser = new AuthenticatedUser
+                {
+                    Access_token = result.Access_token,
+                    User = result.User
+                };
+
             }
             catch (Exception ex)
             {

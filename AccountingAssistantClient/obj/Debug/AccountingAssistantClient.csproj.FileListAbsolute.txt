@@ -86,3 +86,5 @@ D:\Projekty\AccountAssistantClient\AccountingAssistantClient\bin\Debug\itext.pdf
 D:\Projekty\AccountAssistantClient\AccountingAssistantClient\bin\Debug\itext.sign.xml
 D:\Projekty\AccountAssistantClient\AccountingAssistantClient\bin\Debug\itext.styledxmlparser.xml
 D:\Projekty\AccountAssistantClient\AccountingAssistantClient\bin\Debug\itext.svg.xml
+D:\Projekty\AccountAssistantClient\AccountingAssistantClient\obj\Debug\Views\LoggedView.g.cs
+D:\Projekty\AccountAssistantClient\AccountingAssistantClient\obj\Debug\Views\LoggedView.baml

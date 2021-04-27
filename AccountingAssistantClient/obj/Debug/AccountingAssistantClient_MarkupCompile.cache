@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projekty\AccountAssistantClient\AccountingAssistantClient\App.xaml
-2605011186
+31024819661
 
-151877995341
+17636554411
 136-1938700430
-Views\LoginView.xaml;Views\MainView.xaml;
+Views\LoggedView.xaml;Views\LoginView.xaml;Views\MainView.xaml;
 
 False
 

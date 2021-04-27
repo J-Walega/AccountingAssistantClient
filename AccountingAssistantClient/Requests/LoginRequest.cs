@@ -26,7 +26,7 @@ namespace AccountingAssistantClient.Requests
             Client = new HttpClient();
             Client.BaseAddress = new Uri(api);
             Client.DefaultRequestHeaders.Accept.Clear();
-            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<AuthenticatedUser> Login(string login, string password)

@@ -120,8 +120,12 @@
     <Compile Include="PasswordHelper\PasswordBoxHelper.cs" />
     <Compile Include="Requests\ILoginRequest.cs" />
     <Compile Include="Requests\LoginRequest.cs" />
+    <Compile Include="ViewModels\LoggedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\LoggedView.xaml.cs">
+      <DependentUpon>LoggedView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -158,6 +162,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\LoggedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

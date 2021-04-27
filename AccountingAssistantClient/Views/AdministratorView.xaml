@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="AccountingAssistantClient.Views.AdministratorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccountingAssistantClient.Views"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Administrator Panel" FontSize="30" Grid.Column="0" Grid.Row="0" />
+        <Button x:Name="ShowUsers" FontSize="30" Grid.Column="0" Grid.Row="1">Show Users</Button>
+        <Button x:Name="AddUser" FontSize="30" Grid.Column="0" Grid.Row="2">Create User</Button>
+        <Button x:Name="DeleteUser" FontSize="30" Grid.Column="0" Grid.Row="3">Delete User</Button>
+        <Button x:Name="EditUser" FontSize="30" Grid.Column="0" Grid.Row="4">Edit User</Button>
+        <Button x:Name="AddExpense" FontSize="30" Grid.Column="0" Grid.Row="5">Add expense to User</Button>
+    </Grid>
+</UserControl>

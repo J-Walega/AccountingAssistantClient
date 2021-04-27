@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AccountingAssistantClient.ViewModels
 {
-    class AdministratorViewModel
+    public class AdministratorViewModel
     {
+
     }
 }

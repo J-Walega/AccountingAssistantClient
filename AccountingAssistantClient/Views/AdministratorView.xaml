@@ -31,7 +31,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Administrator Panel" FontSize="30" Grid.Column="0" Grid.Row="0" />
+        <TextBlock Text="Administrator Panel" FontSize="30" Grid.Column="0" Grid.Row="0"/>
         <Button x:Name="ShowUsers" FontSize="30" Grid.Column="0" Grid.Row="1">Show Users</Button>
         <Button x:Name="AddUser" FontSize="30" Grid.Column="0" Grid.Row="2">Create User</Button>
         <Button x:Name="DeleteUser" FontSize="30" Grid.Column="0" Grid.Row="3">Delete User</Button>

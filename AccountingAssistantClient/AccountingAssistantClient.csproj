@@ -123,10 +123,14 @@
     <Compile Include="PasswordHelper\PasswordBoxHelper.cs" />
     <Compile Include="Requests\ILoginRequest.cs" />
     <Compile Include="Requests\LoginRequest.cs" />
+    <Compile Include="ViewModels\AdministratorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseCreatorViewModel.cs" />
     <Compile Include="ViewModels\LoggedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\AdministratorView.xaml.cs">
+      <DependentUpon>AdministratorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExpenseCreatorView.xaml.cs">
       <DependentUpon>ExpenseCreatorView.xaml</DependentUpon>
     </Compile>
@@ -169,6 +173,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AdministratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ExpenseCreatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

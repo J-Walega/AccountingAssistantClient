@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Caliburn.Micro;
 
 namespace AccountingAssistantClient.ViewModels
 {
-    public class AdministratorViewModel
+    public class AdministratorViewModel : Screen
     {
 
     }

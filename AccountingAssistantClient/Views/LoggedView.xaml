@@ -29,7 +29,8 @@
         <!-- Column 0-->
         <TextBlock Text="Expenses" Grid.Row="1" Grid.Column="0"/>
         <ListBox x:Name="Expenses" Grid.Row="2" Grid.Column="0" 
-                 Grid.RowSpan="3" MinHeight="200" MinWidth="150">
+                 Grid.RowSpan="3" MinHeight="200" MinWidth="150"
+                 SelectedItem="{Binding SelectedExpense}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Number}" />

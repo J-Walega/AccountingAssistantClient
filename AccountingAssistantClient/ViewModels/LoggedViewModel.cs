@@ -51,6 +51,19 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
+        private Expense _selectedExpense;
+
+        public Expense SelectedExpense
+        {
+            get { return _selectedExpense; }
+            set 
+            {
+                _selectedExpense = value;
+                NotifyOfPropertyChange(() => SelectedExpense);
+            }
+        }
+
+
 
         public bool CanRead
         {

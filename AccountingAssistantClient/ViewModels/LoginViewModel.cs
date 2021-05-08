@@ -13,12 +13,12 @@ namespace AccountingAssistantClient.ViewModels
         private string _login;
         private string _password;
         private IEventAggregator _events;
+        private IAPIHelper _apiHelper;
 
-        private readonly LoginRequest request = new LoginRequest();
-
-        public LoginViewModel(IEventAggregator events)
+        public LoginViewModel(IEventAggregator events, IAPIHelper apiHelper)
         {
             _events = events;
+            _apiHelper = apiHelper;
         }
 
         public string Login
@@ -47,14 +47,16 @@ namespace AccountingAssistantClient.ViewModels
         {
             try
             {
-                var result = await request.Login(Login, Password);
-                AuthenticatedUser loggedUser = new AuthenticatedUser
-                {
-                    Access_token = result.Access_token,
-                    User = result.User
-                };
+                var result = await _apiHelper.Login(Login, Password);
 
-                _events.PublishOnUIThread(new LogOnEvent());
+                if(result == true)
+                {
+                    _events.PublishOnUIThread(new LogOnEvent());
+                }
+                else
+                {
+                    MessageBox.Show("Login, password combination is wrong");
+                }
 
             }
             catch (Exception ex)

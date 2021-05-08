@@ -3,8 +3,8 @@ using AccountingAssistantClient.Models;
 
 namespace AccountingAssistantClient.Requests
 {
-    public interface ILoginRequest
+    public interface IAPIHelper
     {
-        Task<AuthenticatedUser> Login(string login, string password);
+        Task<bool> Login(string login, string password);
     }
 }

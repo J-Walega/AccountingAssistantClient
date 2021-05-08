@@ -8,13 +8,15 @@ using AccountingAssistantClient.Models;
 
 namespace AccountingAssistantClient.Requests
 {
-    public class LoginRequest : ILoginRequest
+    public class APIHelper : IAPIHelper
     {
         private HttpClient Client;
+        private IAuthenticatedUser _authenticatedUser;
 
-        public LoginRequest()
+        public APIHelper(IAuthenticatedUser authenticatedUser)
         {
             CreateClient();
+            _authenticatedUser = authenticatedUser;
         }
 
         private void CreateClient()
@@ -27,7 +29,7 @@ namespace AccountingAssistantClient.Requests
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<AuthenticatedUser> Login(string login, string password)
+        public async Task<bool> Login(string login, string password)
         {
 
             var data = new FormUrlEncodedContent(new[]
@@ -41,7 +43,13 @@ namespace AccountingAssistantClient.Requests
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsAsync<AuthenticatedUser>();
-                    return result;
+
+                    _authenticatedUser.Access_token = result.Access_token;
+                    _authenticatedUser.Expires_in = result.Expires_in;
+                    _authenticatedUser.Token_type = result.Token_type;
+                    _authenticatedUser.User = result.User;
+
+                    return true;
                 }
                 else
                 {

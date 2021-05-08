@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using AccountingAssistantClient.Models;
 using AccountingAssistantClient.PasswordHelper;
+using AccountingAssistantClient.Requests;
 using AccountingAssistantClient.ViewModels;
 using Caliburn.Micro;
 
@@ -29,7 +31,9 @@ namespace AccountingAssistantClient
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<IAPIHelper, APIHelper>()
+                .Singleton<IAuthenticatedUser, AuthenticatedUser>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

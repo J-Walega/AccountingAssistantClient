@@ -124,8 +124,10 @@
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="PasswordHelper\PasswordBoxHelper.cs" />
-    <Compile Include="Requests\ILoginRequest.cs" />
-    <Compile Include="Requests\LoginRequest.cs" />
+    <Compile Include="Requests\ExpensesEndpoint.cs" />
+    <Compile Include="Requests\IAPIHelper.cs" />
+    <Compile Include="Requests\APIHelper.cs" />
+    <Compile Include="Requests\IExpensesEndpoint.cs" />
     <Compile Include="ViewModels\AdministratorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseCreatorViewModel.cs" />
     <Compile Include="ViewModels\LoggedViewModel.cs" />

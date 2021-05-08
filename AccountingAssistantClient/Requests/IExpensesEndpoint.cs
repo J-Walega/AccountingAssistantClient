@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 using AccountingAssistantClient.Models;
 
 namespace AccountingAssistantClient.Requests
 {
-    public interface IAPIHelper
+    public interface IExpensesEndpoint
     {
-        HttpClient ApiClient { get; }
-        Task<bool> Login(string login, string password);
+        Task<List<Expense>> GetUserExpenses();
     }
 }

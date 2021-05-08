@@ -19,6 +19,14 @@ namespace AccountingAssistantClient.Requests
             _authenticatedUser = authenticatedUser;
         }
 
+        public HttpClient ApiClient
+        {
+            get
+            {
+                return Client;
+            }
+        }
+
         private void CreateClient()
         {
             string api = ConfigurationManager.AppSettings["api"];
@@ -49,6 +57,11 @@ namespace AccountingAssistantClient.Requests
                     _authenticatedUser.Token_type = result.Token_type;
                     _authenticatedUser.User = result.User;
 
+                    Client.DefaultRequestHeaders.Clear();
+                    Client.DefaultRequestHeaders.Accept.Clear();
+                    Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    Client.DefaultRequestHeaders.Add("Authorization", $"bearer { _authenticatedUser.Access_token }");
+
                     return true;
                 }
                 else
@@ -57,5 +70,6 @@ namespace AccountingAssistantClient.Requests
                 }
             }
         }
+
     }
 }

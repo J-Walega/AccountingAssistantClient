@@ -1,13 +1,35 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using AccountingAssistantClient.Models;
+using AccountingAssistantClient.Requests;
 using Caliburn.Micro;
 
 namespace AccountingAssistantClient.ViewModels
 {
     public class LoggedViewModel : Screen
     {
-        private BindingList<string> _expenses;
+        IExpensesEndpoint _expensesEndpoint;
 
-        public BindingList<string> Expenses
+        public LoggedViewModel(IExpensesEndpoint expensesEndpoint)
+        {
+            _expensesEndpoint = expensesEndpoint;
+        }
+
+        protected override async void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            await LoadExpenses();
+        }
+
+        private async Task LoadExpenses()
+        {
+            var expensesList = await _expensesEndpoint.GetUserExpenses();
+            Expenses = new BindingList<Expense>(expensesList);
+        }
+
+        private BindingList<Expense> _expenses;
+        public BindingList<Expense> Expenses
         {
             get { return _expenses; }
             set 

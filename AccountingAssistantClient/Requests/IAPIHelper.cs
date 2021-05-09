@@ -8,6 +8,6 @@ namespace AccountingAssistantClient.Requests
     public interface IAPIHelper
     {
         HttpClient ApiClient { get; }
-        Task<bool> Login(string login, string password);
+        Task<string> Login(string login, string password);
     }
 }

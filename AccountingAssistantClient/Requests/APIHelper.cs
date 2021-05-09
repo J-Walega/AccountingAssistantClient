@@ -37,7 +37,7 @@ namespace AccountingAssistantClient.Requests
             Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<bool> Login(string login, string password)
+        public async Task<string> Login(string login, string password)
         {
 
             var data = new FormUrlEncodedContent(new[]
@@ -62,7 +62,7 @@ namespace AccountingAssistantClient.Requests
                     Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     Client.DefaultRequestHeaders.Add("Authorization", $"bearer { _authenticatedUser.Access_token }");
 
-                    return true;
+                    return _authenticatedUser.User.Role;
                 }
                 else
                 {

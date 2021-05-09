@@ -115,6 +115,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EventModels\AdminLogOnEvent.cs" />
     <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="InvoiceTemplate\BaseInvoice.cs" />
     <Compile Include="InvoiceTemplate\ExampleInvoice.cs" />

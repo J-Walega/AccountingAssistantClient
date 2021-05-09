@@ -49,9 +49,13 @@ namespace AccountingAssistantClient.ViewModels
             {
                 var result = await _apiHelper.Login(Login, Password);
 
-                if(result == true)
+                if(result == "user")
                 {
                     _events.PublishOnUIThread(new LogOnEvent());
+                }               
+                else if (result == "admin")
+                {
+                    _events.PublishOnUIThread(new AdminLogOnEvent());
                 }
                 else
                 {

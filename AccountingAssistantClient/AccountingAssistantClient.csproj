@@ -136,6 +136,7 @@
     <Compile Include="Requests\IncomeEndpoints.cs" />
     <Compile Include="ViewModels\AdministratorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseCreatorViewModel.cs" />
+    <Compile Include="ViewModels\ExpenseViewModel.cs" />
     <Compile Include="ViewModels\LoggedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -144,6 +145,9 @@
     </Compile>
     <Compile Include="Views\ExpenseCreatorView.xaml.cs">
       <DependentUpon>ExpenseCreatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExpenseView.xaml.cs">
+      <DependentUpon>ExpenseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoggedView.xaml.cs">
       <DependentUpon>LoggedView.xaml</DependentUpon>
@@ -189,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExpenseCreatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExpenseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

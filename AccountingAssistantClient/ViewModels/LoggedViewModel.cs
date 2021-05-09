@@ -11,6 +11,7 @@ namespace AccountingAssistantClient.ViewModels
     {
         IExpensesEndpoint _expensesEndpoint;
         IIncomeEndpoints _incomeEndpoints;
+        IWindowManager manager = new WindowManager();
 
         public LoggedViewModel(IExpensesEndpoint expensesEndpoint, IIncomeEndpoints incomeEndpoints)
         {
@@ -81,26 +82,20 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
-
-
-        public bool CanRead
+        public void ReadExpenseButton()
         {
-            get
-            {
-                bool output = false;
-
-                return output;
-            }
+            var expense = new ExpenseViewModel(_selectedExpense);
+            manager.ShowWindow(expense, null, null);
         }
 
-        public void ReadExpense()
+        public void ReadIncomeButton()
         {
 
         }
 
-        public void ReadIncome()
+        public void CreateExpenseButton()
         {
-
+            manager.ShowWindow(new ExpenseCreatorViewModel(), null, null);
         }
     }
 }

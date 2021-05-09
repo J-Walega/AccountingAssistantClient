@@ -1,11 +1,13 @@
-﻿using Caliburn.Micro;
+﻿using System.Text.RegularExpressions;
+using System.Windows.Input;
+using Caliburn.Micro;
 
 namespace AccountingAssistantClient.ViewModels
 {
     public class ExpenseCreatorViewModel : Screen
     {
-        private string _number;
 
+        private string _number;
         public string Number
         {
             get { return _number; }
@@ -28,15 +30,15 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
-        private int _nip;
+        private long _nip;
 
-        public int Nip
+        public long NIP
         {
             get { return _nip; }
             set 
             { 
                 _nip = value;
-                NotifyOfPropertyChange(() => Nip);
+                NotifyOfPropertyChange(() => NIP);
             }
         }
 
@@ -75,11 +77,6 @@ namespace AccountingAssistantClient.ViewModels
                 NotifyOfPropertyChange(() => Vat);
             }
         }
-
-
-
-
-
 
     }
 }

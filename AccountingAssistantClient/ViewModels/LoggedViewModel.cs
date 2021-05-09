@@ -10,22 +10,31 @@ namespace AccountingAssistantClient.ViewModels
     public class LoggedViewModel : Screen
     {
         IExpensesEndpoint _expensesEndpoint;
+        IIncomeEndpoints _incomeEndpoints;
 
-        public LoggedViewModel(IExpensesEndpoint expensesEndpoint)
+        public LoggedViewModel(IExpensesEndpoint expensesEndpoint, IIncomeEndpoints incomeEndpoints)
         {
             _expensesEndpoint = expensesEndpoint;
+            _incomeEndpoints = incomeEndpoints;
         }
 
         protected override async void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
             await LoadExpenses();
+            await LoadIncomes();
         }
 
         private async Task LoadExpenses()
         {
             var expensesList = await _expensesEndpoint.GetUserExpenses();
             Expenses = new BindingList<Expense>(expensesList);
+        }
+
+        private async Task LoadIncomes()
+        {
+            var incomesList = await _incomeEndpoints.GetUserIncomesAsync();
+            Incomes = new BindingList<Income>(incomesList);
         }
 
         private BindingList<Expense> _expenses;
@@ -39,20 +48,18 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
-        private BindingList<string> _invoices;
-
-        public BindingList<string> Invoices
+        private BindingList<Income> _incomes;
+        public BindingList<Income> Incomes
         {
-            get { return _invoices; }
+            get { return _incomes; }
             set 
             { 
-                _invoices = value;
-                NotifyOfPropertyChange(() => Invoices);
+                _incomes = value;
+                NotifyOfPropertyChange(() => Incomes);
             }
         }
 
         private Expense _selectedExpense;
-
         public Expense SelectedExpense
         {
             get { return _selectedExpense; }
@@ -60,6 +67,17 @@ namespace AccountingAssistantClient.ViewModels
             {
                 _selectedExpense = value;
                 NotifyOfPropertyChange(() => SelectedExpense);
+            }
+        }
+
+        private Income _selectedIncome;
+        public Income SelectedIncome
+        {
+            get { return _selectedIncome; }
+            set
+            {
+                _selectedIncome = value;
+                NotifyOfPropertyChange(() => SelectedIncome);
             }
         }
 
@@ -80,7 +98,7 @@ namespace AccountingAssistantClient.ViewModels
 
         }
 
-        public void ReadInvoice()
+        public void ReadIncome()
         {
 
         }

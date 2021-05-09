@@ -42,14 +42,21 @@
         <StackPanel Orientation="Vertical" Grid.Column="1"
                     Grid.Row="2" Margin="20 0">
             <Button x:Name="ReadExpense" Content="Read expense content" Margin="0 0 0 30" Padding="5" />
-            <Button x:Name="ReadInvoice" Content="Read invoice details" Padding="5" />
+            <Button x:Name="ReadIncome" Content="Read income details" Padding="5" />
         </StackPanel>
         
-        <Button Grid.Column="1" Grid.Row="3" x:Name="CreateInvoice" Content="Create Invoice" Padding="5" Margin="5"/>
+        <Button Grid.Column="1" Grid.Row="3" x:Name="CreateIncome" Content="Create income invoice" Padding="5" Margin="5"/>
 
         <!-- Column 2-->
-        <TextBlock Text="Invoices" Grid.Row="1" Grid.Column="2" />
-        <ListBox x:Name="Invoices" Grid.Row="2" Grid.Column="2" 
-                 Grid.RowSpan="3" MinHeight="200" MinWidth="150"/>
+        <TextBlock Text="Incomes" Grid.Row="1" Grid.Column="2" />
+        <ListBox x:Name="Incomes" Grid.Row="2" Grid.Column="2" 
+                 Grid.RowSpan="3" MinHeight="200" MinWidth="150"
+                 SelectedItem="{Binding SelectedIncome}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Number}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

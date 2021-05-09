@@ -28,7 +28,10 @@ namespace AccountingAssistantClient
         protected override void Configure()
         {
             _container.Instance(_container)
-                .PerRequest<IExpensesEndpoint, ExpensesEndpoint>();
+                .PerRequest<IExpensesEndpoint, ExpensesEndpoint>()
+                .PerRequest<IAdminEndpoints, AdminEndpoints>()
+                .PerRequest<IIncomeEndpoints, IncomeEndpoints>();
+             
 
             _container
                 .Singleton<IWindowManager, WindowManager>()

@@ -32,10 +32,22 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Administrator Panel" FontSize="30" Grid.Column="0" Grid.Row="0"/>
-        <Button x:Name="ShowUsers" FontSize="30" Grid.Column="0" Grid.Row="1">Show Users</Button>
-        <Button x:Name="AddUser" FontSize="30" Grid.Column="0" Grid.Row="2">Create User</Button>
-        <Button x:Name="DeleteUser" FontSize="30" Grid.Column="0" Grid.Row="3">Delete User</Button>
-        <Button x:Name="EditUser" FontSize="30" Grid.Column="0" Grid.Row="4">Edit User</Button>
-        <Button x:Name="AddExpense" FontSize="30" Grid.Column="0" Grid.Row="5">Add expense to User</Button>
+        <Button x:Name="CreateUserButton" FontSize="30" Grid.Column="0" Grid.Row="2" MaxHeight="50">Create User</Button>
+        <Button x:Name="DeleteUserButton" FontSize="30" Grid.Column="0" Grid.Row="3" MaxHeight="50">Delete User</Button>
+        <Button x:Name="EditUserButton" FontSize="30" Grid.Column="0" Grid.Row="4" MaxHeight="50">Edit User</Button>
+        <Button x:Name="AddExpenseToUserButton" FontSize="30" Grid.Column="0" Grid.Row="5" MaxHeight="50">Add expense to User</Button>
+
+        <Button x:Name="RefreshUsersButton" FontSize="30" Grid.Column="2" Grid.Row="6" MaxHeight="50" MaxWidth="200">Refresh</Button>
+
+        <TextBlock FontSize="30" Text="Users" Grid.Row="1" Grid.Column="2"/>
+        <ListBox x:Name="Users" Grid.Row="2" Grid.Column="2" Margin="10"
+                 Grid.RowSpan="4" MinHeight="300" MinWidth="500"
+                 SelectedItem="{Binding SelectedUser}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

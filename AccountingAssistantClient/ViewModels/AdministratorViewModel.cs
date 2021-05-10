@@ -12,6 +12,7 @@ namespace AccountingAssistantClient.ViewModels
     {
 
         IAdminEndpoints _adminEndpoints;
+        IWindowManager manager = new WindowManager();
 
         public AdministratorViewModel(IAdminEndpoints adminEndpoints)
         {
@@ -62,6 +63,12 @@ namespace AccountingAssistantClient.ViewModels
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void CreateUserButton()
+        {
+            var newCreateUserViewModel = new UserRegisterViewModel(_adminEndpoints);
+            bool? result = manager.ShowDialog(newCreateUserViewModel);
         }
 
     }

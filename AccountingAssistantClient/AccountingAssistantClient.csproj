@@ -126,6 +126,7 @@
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRegisterRequest.cs" />
     <Compile Include="PasswordHelper\PasswordBoxHelper.cs" />
     <Compile Include="Requests\AdminEndpoints.cs" />
     <Compile Include="Requests\ExpensesEndpoint.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="ViewModels\LoggedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
     </Compile>
@@ -162,6 +164,9 @@
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserRegisterView.xaml.cs">
+      <DependentUpon>UserRegisterView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserRegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

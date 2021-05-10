@@ -55,5 +55,21 @@ namespace AccountingAssistantClient.Requests
 
             }
         }
+
+        public async Task<bool> RegisterUserAsync(UserRegisterRequest request)
+        {
+            using (HttpResponseMessage respose = await _apiHelper.ApiClient.PostAsJsonAsync("/api/auth/register", request))
+            {
+                if (respose.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(respose.ReasonPhrase);
+                    return false;
+                }
+            }
+        }
     }
 }

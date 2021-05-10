@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AccountingAssistantClient.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+             d:DesignHeight="600" d:DesignWidth="800" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -33,7 +33,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Number:" Grid.Column="1" Grid.Row="1" FontSize="30"/>
-        <TextBlock Text="Seller:" Grid.Column="1" Grid.Row="2" FontSize="30"/>
+        <TextBlock Text="Buyer:" Grid.Column="1" Grid.Row="2" FontSize="30"/>
         <TextBlock Text="NIP:" Grid.Column="1" Grid.Row="3" FontSize="30"/>
         <TextBlock Text="Name:" Grid.Column="1" Grid.Row="4" FontSize="30"/>
         <TextBlock Text="Netto:" Grid.Column="1" Grid.Row="5" FontSize="30"/>
@@ -43,7 +43,7 @@
         <TextBlock Text="Paid:" Grid.Column="1" Grid.Row="9" FontSize="30" />
 
         <TextBlock Text="{Binding Path=Number}" x:Name="Number" Grid.Column="2" Grid.Row="1" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
-        <TextBlock Text="{Binding Path=Seller}" x:Name="Seller" Grid.Column="2" Grid.Row="2" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Buyer}" x:Name="Seller" Grid.Column="2" Grid.Row="2" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
         <TextBlock Text="{Binding Path=NIP}" x:Name="NIP" Grid.Column="2" Grid.Row="3" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
         <TextBlock Text="{Binding Path=Name}" x:Name="Name" Grid.Column="2" Grid.Row="4" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
         <TextBlock Text="{Binding Path=Netto}" x:Name="Netto" Grid.Column="2" Grid.Row="5" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>

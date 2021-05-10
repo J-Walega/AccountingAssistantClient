@@ -17,7 +17,7 @@ namespace AccountingAssistantClient.ViewModels
             _expense = income;
 
             Number = income.Number;
-            Seller = income.Seller;
+            Buyer = income.Buyer;
             NIP = income.Nip;
             Name = income.Name;
             Netto = income.Netto;
@@ -38,14 +38,14 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
-        private string _seller;
-        public string Seller
+        private string _buyer;
+        public string Buyer
         {
-            get { return _seller; }
+            get { return _buyer; }
             set
             {
-                _seller = _expense.Seller;
-                NotifyOfPropertyChange(() => Seller);
+                _buyer = _expense.Buyer;
+                NotifyOfPropertyChange(() => Buyer);
             }
         }
 

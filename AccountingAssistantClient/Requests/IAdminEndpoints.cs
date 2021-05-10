@@ -8,5 +8,6 @@ namespace AccountingAssistantClient.Requests
     {
         Task<List<User>> GetAllUsersAsync();
         Task<bool> PostExpense(Expense expense);
+        Task<bool> RegisterUserAsync(UserRegisterRequest request);
     }
 }

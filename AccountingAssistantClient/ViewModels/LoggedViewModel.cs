@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows;
 using AccountingAssistantClient.EventModels;
 using AccountingAssistantClient.Models;
 using AccountingAssistantClient.Requests;
@@ -87,13 +88,28 @@ namespace AccountingAssistantClient.ViewModels
 
         public void ReadExpenseButton()
         {
-            var expense = new ExpenseViewModel(_selectedExpense);
-            manager.ShowWindow(expense, null, null);
+            if(_selectedExpense == null)
+            {
+                MessageBox.Show("Select expense");
+            }
+            else
+            {
+                var expense = new ExpenseViewModel(_selectedExpense);
+                manager.ShowWindow(expense, null, null);
+            }        
         }
 
         public void ReadIncomeButton()
         {
-
+            if(_selectedIncome == null)
+            {
+                MessageBox.Show("Select income");
+            }
+            else
+            {
+                var income = new IncomeViewModel(_selectedIncome);
+                manager.ShowWindow(income, null, null);
+            }          
         }
 
         public void CreateExpenseButton()

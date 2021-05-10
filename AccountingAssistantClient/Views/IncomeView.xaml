@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="AccountingAssistantClient.Views.IncomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccountingAssistantClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Number:" Grid.Column="1" Grid.Row="1" FontSize="30"/>
+        <TextBlock Text="Seller:" Grid.Column="1" Grid.Row="2" FontSize="30"/>
+        <TextBlock Text="NIP:" Grid.Column="1" Grid.Row="3" FontSize="30"/>
+        <TextBlock Text="Name:" Grid.Column="1" Grid.Row="4" FontSize="30"/>
+        <TextBlock Text="Netto:" Grid.Column="1" Grid.Row="5" FontSize="30"/>
+        <TextBlock Text="VAT:" Grid.Column="1" Grid.Row="6" FontSize="30"/>
+        <TextBlock Text="Brutto:" Grid.Column="1" Grid.Row="7" FontSize="30"/>
+        <TextBlock Text="Category:" Grid.Column="1" Grid.Row="8" FontSize="30"/>
+        <TextBlock Text="Paid:" Grid.Column="1" Grid.Row="9" FontSize="30" />
+
+        <TextBlock Text="{Binding Path=Number}" x:Name="Number" Grid.Column="2" Grid.Row="1" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Seller}" x:Name="Seller" Grid.Column="2" Grid.Row="2" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=NIP}" x:Name="NIP" Grid.Column="2" Grid.Row="3" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Name}" x:Name="Name" Grid.Column="2" Grid.Row="4" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Netto}" x:Name="Netto" Grid.Column="2" Grid.Row="5" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=VAT}" x:Name="VAT" Grid.Column="2" Grid.Row="6" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Brutto}" x:Name="Brutto" Grid.Column="2" Grid.Row="7" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Category}" x:Name="Category" Grid.Column="2" Grid.Row="8" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+        <TextBlock Text="{Binding Path=Paid}" x:Name="Paid" Grid.Column="2" Grid.Row="9" FontSize="30" FontStyle="Oblique" Padding="20 0 0 0"/>
+
+        <Button x:Name="CloseButton" Grid.Column="7" Grid.Row="10" FontSize="30" MinWidth="150" MinHeight="50" MaxHeight="50" HorizontalAlignment="Right">Close</Button>
+    </Grid>
+</UserControl>

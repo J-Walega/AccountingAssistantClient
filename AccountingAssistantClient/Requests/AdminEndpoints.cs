@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AccountingAssistantClient.Models;
 
 namespace AccountingAssistantClient.Requests
@@ -32,6 +33,24 @@ namespace AccountingAssistantClient.Requests
                 else
                 {
                     throw new Exception(response.ReasonPhrase);
+                }
+
+            }
+        }
+
+        public async Task<bool> PostExpense(Expense expense)
+        {
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/income/store", expense))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(response.ReasonPhrase);
+                    return false;
                 }
 
             }

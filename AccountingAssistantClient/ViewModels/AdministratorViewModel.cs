@@ -63,5 +63,6 @@ namespace AccountingAssistantClient.ViewModels
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

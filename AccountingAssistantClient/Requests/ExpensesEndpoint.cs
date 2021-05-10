@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
+using System.Windows;
 using AccountingAssistantClient.Models;
 using Newtonsoft.Json;
 
@@ -35,6 +37,25 @@ namespace AccountingAssistantClient.Requests
                 else
                 {
                     throw new Exception(response.ReasonPhrase);
+                }
+
+            }
+        }
+
+        public async Task<bool> PostExpense(ExpensePost expense)
+        {
+            var json = JsonConvert.SerializeObject(expense);
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/expense/store", expense))
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                   MessageBox.Show(response.ReasonPhrase);
+                   return false;
                 }
 
             }

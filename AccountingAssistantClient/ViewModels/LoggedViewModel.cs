@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using AccountingAssistantClient.EventModels;
 using AccountingAssistantClient.Models;
 using AccountingAssistantClient.Requests;
 using Caliburn.Micro;
@@ -12,11 +13,13 @@ namespace AccountingAssistantClient.ViewModels
         IExpensesEndpoint _expensesEndpoint;
         IIncomeEndpoints _incomeEndpoints;
         IWindowManager manager = new WindowManager();
+        IAuthenticatedUser _authenticatedUser;
 
-        public LoggedViewModel(IExpensesEndpoint expensesEndpoint, IIncomeEndpoints incomeEndpoints)
+        public LoggedViewModel(IExpensesEndpoint expensesEndpoint, IIncomeEndpoints incomeEndpoints, IAuthenticatedUser authenticatedUser)
         {
             _expensesEndpoint = expensesEndpoint;
             _incomeEndpoints = incomeEndpoints;
+            _authenticatedUser = authenticatedUser;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -95,7 +98,15 @@ namespace AccountingAssistantClient.ViewModels
 
         public void CreateExpenseButton()
         {
-            manager.ShowWindow(new ExpenseCreatorViewModel(), null, null);
+            var newExpenseCreatorViewModel = new ExpenseCreatorViewModel(_expensesEndpoint, _authenticatedUser);
+            bool? result = manager.ShowDialog(newExpenseCreatorViewModel);
+            //manager.ShowWindow(new ExpenseCreatorViewModel(_expensesEndpoint, _authenticatedUser), null, null);
+        }
+
+        public async Task RefreshButton()
+        {
+            await LoadExpenses();
+            await LoadIncomes();
         }
     }
 }

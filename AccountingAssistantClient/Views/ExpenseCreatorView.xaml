@@ -39,14 +39,20 @@
         <TextBlock Text="Netto" Grid.Column="1" Grid.Row="5" FontSize="30"/>
         <TextBlock Text="VAT" Grid.Column="1" Grid.Row="6" FontSize="30"/>
         <TextBlock Text="Category" Grid.Column="1" Grid.Row="7" FontSize="30"/>
+        <TextBlock Text="Is Paid?" Grid.Column="1" Grid.Row="8" FontSize="30"/>
 
         <TextBox x:Name="Number" Grid.Column="2" Grid.Row="1" MinWidth="350" Background="LightGray" FontSize="30"/>
         <TextBox x:Name="Seller" Grid.Column="2" Grid.Row="2" MinWidth="350" Background="LightGray" FontSize="30"/>
-        <TextBox x:Name="NIP" MaxLength="9" Grid.Column="2" Grid.Row="3" MinWidth="350" Background="LightGray" FontSize="30"/>
+        <TextBox x:Name="NIP" MaxLength="10" Grid.Column="2" Grid.Row="3" MinWidth="350" Background="LightGray" FontSize="30"/>
         <TextBox x:Name="Name" Grid.Column="2" Grid.Row="4" MinWidth="350" Background="LightGray" FontSize="30"/>
         <TextBox x:Name="Netto" Grid.Column="2" Grid.Row="5" MinWidth="350" Background="LightGray" FontSize="30" Text="{Binding Path=Netto, StringFormat=N2}"/>
         <TextBox x:Name="Vat" MaxLength="2" Grid.Column="2" Grid.Row="6" MinWidth="350" Background="LightGray" FontSize="30"/>
         <TextBox x:Name="Category" Grid.Column="2" Grid.Row="7" Background="LightGray" FontSize="20"/>
+        <CheckBox x:Name="IsPaid" Grid.Column="2" Grid.Row="8" Background="LightGray">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
 
         <Button x:Name="SubmitButton" Grid.Column="3" Grid.Row="9" MinWidth="200" MinHeight="50">Submit</Button>

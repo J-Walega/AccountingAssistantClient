@@ -121,6 +121,7 @@
     <Compile Include="InvoiceTemplate\ExampleInvoice.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\ExpensePost.cs" />
     <Compile Include="Models\IAuthenticatedUser.cs" />
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\Invoice.cs" />

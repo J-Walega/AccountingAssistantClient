@@ -16,7 +16,5 @@ namespace AccountingAssistantClient.Models
         public int Brutto { get; set; }
         public string Category { get; set; }
         public bool Paid { get; set; }
-        public DateTime Created_at { get; set; }
-        public DateTime Updated_at { get; set; }
     }
 }

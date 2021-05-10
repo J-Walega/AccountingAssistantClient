@@ -24,6 +24,7 @@ namespace AccountingAssistantClient.ViewModels
             VAT = expense.Vat;
             Brutto = expense.Brutto;
             Category = expense.Category;
+            Paid = expense.Paid.ToString();
         }
 
         private string _number;
@@ -119,6 +120,29 @@ namespace AccountingAssistantClient.ViewModels
                 NotifyOfPropertyChange(() => Category);
             }
         }
+
+        private string _paid;
+
+        public string Paid
+        {
+            get
+            { return _paid; }
+            set
+            {
+                if(_expense.Paid == true)
+                {
+                    _paid = "Yes";
+                    NotifyOfPropertyChange(() => Paid);
+                }
+                else
+                {
+                    _paid = "No";
+                    NotifyOfPropertyChange(() => Paid);
+                }
+
+            }
+        }
+
 
         public void CloseButton()
         {

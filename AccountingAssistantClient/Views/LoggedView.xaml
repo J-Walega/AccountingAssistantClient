@@ -29,11 +29,16 @@
         <!-- Column 0-->
         <TextBlock Text="Expenses" Grid.Row="1" Grid.Column="0"/>
         <ListBox x:Name="Expenses" Grid.Row="2" Grid.Column="0" 
-                 Grid.RowSpan="3" MinHeight="200" MinWidth="250"
-                 SelectedItem="{Binding SelectedExpense}">
+                 Grid.RowSpan="3" MinHeight="200" MaxHeight="200" MinWidth="250"
+                 SelectedItem="{Binding SelectedExpense}"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Number}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Number}"/>
+                        <TextBlock Text=" Paid: "/>
+                        <TextBlock Text="{Binding Paid}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -47,12 +52,14 @@
         
         <Button Grid.Column="1" Grid.Row="3" x:Name="CreateIncomeButton" Content="Create income invoice" Padding="5" Margin="5"/>
         <Button Grid.Column="1" Grid.Row="4" x:Name="CreateExpenseButton" Content="Create expense" Padding="5" Margin="5"/>
+        <Button Grid.Column="1" Grid.Row="5" x:Name="RefreshButton" Padding="5" Margin="5" MaxHeight="50" MaxWidth="100">Refresh</Button>
 
         <!-- Column 2-->
         <TextBlock Text="Incomes" Grid.Row="1" Grid.Column="2" />
         <ListBox x:Name="Incomes" Grid.Row="2" Grid.Column="2" 
-                 Grid.RowSpan="3" MinHeight="200" MinWidth="250"
-                 SelectedItem="{Binding SelectedIncome}">
+                 Grid.RowSpan="3" MinHeight="200" MaxHeight="200" MinWidth="250"
+                 SelectedItem="{Binding SelectedIncome}"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Number}"/>

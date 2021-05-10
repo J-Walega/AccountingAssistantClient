@@ -10,8 +10,8 @@ namespace AccountingAssistantClient.ViewModels
 {
     public class LoginViewModel : Screen
     {
-        private string _login;
-        private string _password;
+        private string _login = "user@user";
+        private string _password = "zaq1@WSX";
         private IEventAggregator _events;
         private IAPIHelper _apiHelper;
 

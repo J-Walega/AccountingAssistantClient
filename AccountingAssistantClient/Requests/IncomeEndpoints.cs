@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AccountingAssistantClient.Models;
 
 namespace AccountingAssistantClient.Requests
@@ -35,6 +36,23 @@ namespace AccountingAssistantClient.Requests
                     throw new Exception(response.ReasonPhrase);
                 }
 
+            }
+        }
+
+        public async Task<bool> PostUserIncome(IncomePost post)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/income/store", post))
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(response.ReasonPhrase);
+                    return false;
+                }
             }
         }
     }

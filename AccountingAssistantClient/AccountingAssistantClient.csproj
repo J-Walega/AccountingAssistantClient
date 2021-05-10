@@ -159,6 +159,7 @@
     <Compile Include="Models\ExpensePost.cs" />
     <Compile Include="Models\IAuthenticatedUser.cs" />
     <Compile Include="Models\Income.cs" />
+    <Compile Include="Models\IncomePost.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\PatchExpenseRequest.cs" />
     <Compile Include="Models\User.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="ViewModels\ExpenseCreatorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseViewModel.cs" />
     <Compile Include="ViewModels\IncomeViewModel.cs" />
+    <Compile Include="ViewModels\InvoiceCreatorViewModel.cs" />
     <Compile Include="ViewModels\LoggedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -192,6 +194,9 @@
     </Compile>
     <Compile Include="Views\IncomeView.xaml.cs">
       <DependentUpon>IncomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceCreatorView.xaml.cs">
+      <DependentUpon>InvoiceCreatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoggedView.xaml.cs">
       <DependentUpon>LoggedView.xaml</DependentUpon>
@@ -248,6 +253,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\IncomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InvoiceCreatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -119,6 +119,12 @@ namespace AccountingAssistantClient.ViewModels
             //manager.ShowWindow(new ExpenseCreatorViewModel(_expensesEndpoint, _authenticatedUser), null, null);
         }
 
+        public void CreateIncomeButton()
+        {
+            var newIncomeCreatorViewModel = new InvoiceCreatorViewModel(_incomeEndpoints, _authenticatedUser);
+            bool? result = manager.ShowDialog(newIncomeCreatorViewModel);
+        }
+
         public async Task MarkAsPaidButton()
         {
             if (_selectedExpense == null)
@@ -141,12 +147,20 @@ namespace AccountingAssistantClient.ViewModels
                     category = _selectedExpense.Category,
                     paid = true
                 };
-                _selectedExpense.Paid = true;
-                var response = await _expensesEndpoint.PatchExpense(request);
-                if (response == true)
+                if(_selectedExpense.Paid == false)
                 {
-                    MessageBox.Show("Updated");
+                    _selectedExpense.Paid = true;
+                    var response = await _expensesEndpoint.PatchExpense(request);
+                    if (response == true)
+                    {
+                        MessageBox.Show("Updated");
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Expense is already paid");
+                }
+
             }
         }
 

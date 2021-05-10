@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
@@ -56,6 +57,27 @@ namespace AccountingAssistantClient.Requests
                 {
                    MessageBox.Show(response.ReasonPhrase);
                    return false;
+                }
+
+            }
+        }
+
+        public async Task<bool> PatchExpense(PatchExpenseRequest expense)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(expense));
+            content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PatchAsync(new Uri("http://localhost:8000/api/expense/update"), content))
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(response.ReasonPhrase);
+                    return false;
                 }
 
             }

@@ -119,6 +119,37 @@ namespace AccountingAssistantClient.ViewModels
             //manager.ShowWindow(new ExpenseCreatorViewModel(_expensesEndpoint, _authenticatedUser), null, null);
         }
 
+        public async Task MarkAsPaidButton()
+        {
+            if (_selectedExpense == null)
+            {
+                MessageBox.Show("Select expense");
+            }
+            else
+            {
+                var request = new PatchExpenseRequest()
+                {
+                    expense_id = _selectedExpense.Id,
+                    number = _selectedExpense.Number,
+                    date_issue = _selectedExpense.Date_issue,
+                    seller = _selectedExpense.Seller,
+                    nip = _selectedExpense.Nip,
+                    name = _selectedExpense.Name,
+                    netto = _selectedExpense.Netto,
+                    vat = _selectedExpense.Vat,
+                    brutto = _selectedExpense.Brutto,
+                    category = _selectedExpense.Category,
+                    paid = true
+                };
+                _selectedExpense.Paid = true;
+                var response = await _expensesEndpoint.PatchExpense(request);
+                if (response == true)
+                {
+                    MessageBox.Show("Updated");
+                }
+            }
+        }
+
         public async Task RefreshButton()
         {
             await LoadExpenses();

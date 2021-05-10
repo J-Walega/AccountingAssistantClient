@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -50,7 +49,7 @@ namespace AccountingAssistantClient.Requests
             using (HttpResponseMessage response = await Client.PostAsync("/api/auth/login", data))
             {
                 if (response.IsSuccessStatusCode)
-                {
+                {                
                     var result = await response.Content.ReadAsAsync<AuthenticatedUser>();
 
                     _authenticatedUser.Access_token = result.Access_token;
@@ -71,6 +70,7 @@ namespace AccountingAssistantClient.Requests
                 }
             }
         }
+
 
     }
 }

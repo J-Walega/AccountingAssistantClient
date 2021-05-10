@@ -9,5 +9,6 @@ namespace AccountingAssistantClient.Requests
     {
         Task<List<Expense>> GetUserExpenses();
         Task<bool> PostExpense(ExpensePost content);
+        Task<bool> PatchExpense(PatchExpenseRequest content);
     }
 }

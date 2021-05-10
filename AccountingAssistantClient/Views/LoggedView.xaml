@@ -53,6 +53,7 @@
         <Button Grid.Column="1" Grid.Row="3" x:Name="CreateIncomeButton" Content="Create income invoice" Padding="5" Margin="5"/>
         <Button Grid.Column="1" Grid.Row="4" x:Name="CreateExpenseButton" Content="Create expense" Padding="5" Margin="5"/>
         <Button Grid.Column="1" Grid.Row="5" x:Name="RefreshButton" Padding="5" Margin="5" MaxHeight="50" MaxWidth="100">Refresh</Button>
+        <Button Grid.Column="0" Grid.Row="5" x:Name="MarkAsPaidButton" Padding="5" MaxHeight="50">Change status to paid</Button>
 
         <!-- Column 2-->
         <TextBlock Text="Incomes" Grid.Row="1" Grid.Column="2" />

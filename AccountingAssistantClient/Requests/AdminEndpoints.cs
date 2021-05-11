@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using AccountingAssistantClient.Models;
+using Newtonsoft.Json;
 
 namespace AccountingAssistantClient.Requests
 {
@@ -38,10 +40,10 @@ namespace AccountingAssistantClient.Requests
             }
         }
 
-        public async Task<bool> PostExpense(Expense expense)
+        public async Task<bool> PostExpenseToUser(ExpensePost expense)
         {
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/income/store", expense))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/expense/store", expense))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -71,5 +73,41 @@ namespace AccountingAssistantClient.Requests
                 }
             }
         }
+
+        public async Task<bool> DeleteSelectedUserAsync(User request)
+        {
+            using (HttpResponseMessage respose = await _apiHelper.ApiClient.DeleteAsync($"/api/auth/destroy/{request.Id}"))
+            {
+                if (respose.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(respose.ReasonPhrase);
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> PatchSelectedUserAsync(UserPatchRequest request)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(request));
+            content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+            using (HttpResponseMessage respose = await _apiHelper.ApiClient.PatchAsync(new Uri("http://localhost:8000/api/auth/update"), content))
+            {
+                if (respose.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(respose.ReasonPhrase);
+                    return false;
+                }
+            }
+        }
+
     }
 }

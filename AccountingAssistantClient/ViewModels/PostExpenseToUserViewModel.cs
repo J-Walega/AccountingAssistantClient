@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Text.RegularExpressions;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
-using System.Windows.Input;
 using AccountingAssistantClient.Models;
 using AccountingAssistantClient.Requests;
 using Caliburn.Micro;
 
 namespace AccountingAssistantClient.ViewModels
 {
-    public class ExpenseCreatorViewModel : Screen
+    public class PostExpenseToUserViewModel : Screen
     {
-        private IExpensesEndpoint _expensesEndpoint;
-        private IAuthenticatedUser _authenticatedUser;
+        private IAdminEndpoints _adminEndpoints;
+        private User _selectedUser;
 
-        public ExpenseCreatorViewModel(IExpensesEndpoint expensesEndpoint, IAuthenticatedUser authenticatedUser)
+        public PostExpenseToUserViewModel(IAdminEndpoints adminEndpoints, User selectedUser)
         {
-            _expensesEndpoint = expensesEndpoint;
-            _authenticatedUser = authenticatedUser;
+            _adminEndpoints = adminEndpoints;
+            _selectedUser = selectedUser;
         }
 
         private string _number;
         public string Number
         {
             get { return _number; }
-            set 
-            { 
+            set
+            {
                 _number = value;
                 NotifyOfPropertyChange(() => Number);
             }
@@ -38,8 +36,8 @@ namespace AccountingAssistantClient.ViewModels
         public string Seller
         {
             get { return _seller; }
-            set 
-            { 
+            set
+            {
                 _seller = value;
                 NotifyOfPropertyChange(() => Seller);
             }
@@ -50,8 +48,8 @@ namespace AccountingAssistantClient.ViewModels
         public long NIP
         {
             get { return _nip; }
-            set 
-            { 
+            set
+            {
                 _nip = value;
                 NotifyOfPropertyChange(() => NIP);
             }
@@ -62,8 +60,8 @@ namespace AccountingAssistantClient.ViewModels
         public string Name
         {
             get { return _name; }
-            set 
-            { 
+            set
+            {
                 _name = value;
                 NotifyOfPropertyChange(() => Name);
             }
@@ -74,8 +72,8 @@ namespace AccountingAssistantClient.ViewModels
         public int Netto
         {
             get { return _netto; }
-            set 
-            { 
+            set
+            {
                 _netto = value;
                 NotifyOfPropertyChange(() => Netto);
             }
@@ -86,8 +84,8 @@ namespace AccountingAssistantClient.ViewModels
         public int Vat
         {
             get { return _vat; }
-            set 
-            { 
+            set
+            {
                 _vat = value;
                 NotifyOfPropertyChange(() => Vat);
             }
@@ -119,11 +117,9 @@ namespace AccountingAssistantClient.ViewModels
 
         public async Task SubmitButton()
         {
-            if(_authenticatedUser.User.Role == "user")
-            {
                 var content = new ExpensePost()
                 {
-                    user_id = _authenticatedUser.User.Id,
+                    user_id = _selectedUser.Id,
                     number = Number,
                     date_issue = new DateTime(2021, 05, 11),
                     seller = Seller,
@@ -137,13 +133,12 @@ namespace AccountingAssistantClient.ViewModels
 
                 };
 
-                var response = await _expensesEndpoint.PostExpense(content);
+                var response = await _adminEndpoints.PostExpenseToUser(content);
                 if (response == true)
                 {
                     TryClose();
-                }
-            }
-            
+                }        
+
         }
 
         private int CalculateBrutto(int netto, int vat)

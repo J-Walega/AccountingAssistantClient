@@ -13,6 +13,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -42,8 +43,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="{Binding ExpensesSum}"/>
 
-            <!-- Column 1-->
+        <!-- Column 1-->
         <StackPanel Orientation="Vertical" Grid.Column="1"
                     Grid.Row="2" Margin="20 0">
             <Button x:Name="ReadExpenseButton" Content="Read expense content" Margin="0 0 0 30" Padding="5" />

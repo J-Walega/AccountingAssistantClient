@@ -71,5 +71,30 @@ namespace AccountingAssistantClient.ViewModels
             bool? result = manager.ShowDialog(newCreateUserViewModel);
         }
 
+        public void AddExpenseToUserButton()
+        {
+            var newPostExpenseToUserViewModel = new PostExpenseToUserViewModel(_adminEndpoints, _selectedUser);
+            bool? result = manager.ShowDialog(newPostExpenseToUserViewModel);
+        }
+
+        public async Task DeleteUserButton()
+        {
+            var response = await _adminEndpoints.DeleteSelectedUserAsync(_selectedUser);
+            if(response == true)
+            {
+                MessageBox.Show("Deleted successfully");
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }    
+        }
+
+        public void EditUserButton()
+        {
+            var newUserPatchViewModel = new UserPatchViewModel(_adminEndpoints, _selectedUser);
+            bool? result = manager.ShowDialog(newUserPatchViewModel);
+        }
+
     }
 }

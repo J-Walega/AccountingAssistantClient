@@ -10,15 +10,19 @@ using Caliburn.Micro;
 
 namespace AccountingAssistantClient.ViewModels
 {
-    public class UserRegisterViewModel : Screen
+    public class UserPatchViewModel : Screen
     {
         private IAdminEndpoints _adminEndpoints;
+        private User _selectedUser;
 
-        public UserRegisterViewModel(IAdminEndpoints adminEndpoints)
+        public UserPatchViewModel(IAdminEndpoints adminEndpoints, User selectedUser)
         {
             _adminEndpoints = adminEndpoints;
-        }
+            _selectedUser = selectedUser;
 
+            Name = selectedUser.Name;
+            Email = selectedUser.Email;
+        }
 
         private string _name;
         public string Name
@@ -30,8 +34,6 @@ namespace AccountingAssistantClient.ViewModels
                 NotifyOfPropertyChange(() => Name);
             }
         }
-
-        private string _role = "user";
 
         private string _email;
         public string Email
@@ -67,10 +69,11 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
-        public async Task CreateButton()
+        public async Task UpdateButton()
         {
-            var content = new UserRegisterRequest()
+            var request = new UserPatchRequest()
             {
+                user_id = _selectedUser.Id,
                 name = Name,
                 role = "user",
                 email = Email,
@@ -78,10 +81,10 @@ namespace AccountingAssistantClient.ViewModels
                 password_confirmation = RepeatPassword
             };
 
-            var response = await _adminEndpoints.RegisterUserAsync(content);
-            if(response == true)
+            var result = await _adminEndpoints.PatchSelectedUserAsync(request);
+            if(result == true)
             {
-                MessageBox.Show("Created");
+                MessageBox.Show("Success");
                 TryClose();
             }
             else
@@ -89,6 +92,5 @@ namespace AccountingAssistantClient.ViewModels
                 MessageBox.Show("Error");
             }
         }
-
     }
 }

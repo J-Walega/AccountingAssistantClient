@@ -163,6 +163,7 @@
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\PatchExpenseRequest.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserPatchRequest.cs" />
     <Compile Include="Models\UserRegisterRequest.cs" />
     <Compile Include="PasswordHelper\PasswordBoxHelper.cs" />
     <Compile Include="Requests\AdminEndpoints.cs" />
@@ -182,6 +183,8 @@
     <Compile Include="ViewModels\LoggedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PostExpenseToUserViewModel.cs" />
+    <Compile Include="ViewModels\UserPatchViewModel.cs" />
     <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
@@ -206,6 +209,12 @@
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PostExpenseToUserView.xaml.cs">
+      <DependentUpon>PostExpenseToUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserPatchView.xaml.cs">
+      <DependentUpon>UserPatchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserRegisterView.xaml.cs">
       <DependentUpon>UserRegisterView.xaml</DependentUpon>
@@ -269,6 +278,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PostExpenseToUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserPatchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

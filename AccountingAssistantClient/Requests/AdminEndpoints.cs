@@ -109,5 +109,20 @@ namespace AccountingAssistantClient.Requests
             }
         }
 
-    }
+        public async Task<bool> PostPaymentToUser(PaymentPost request)
+        {
+            using (HttpResponseMessage respose = await _apiHelper.ApiClient.PostAsJsonAsync("/api/payment/store", request))
+            {
+                if (respose.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(respose.ReasonPhrase);
+                    return false;
+                }
+            }
+        }
+    }   
 }

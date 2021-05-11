@@ -96,5 +96,11 @@ namespace AccountingAssistantClient.ViewModels
             bool? result = manager.ShowDialog(newUserPatchViewModel);
         }
 
+        public void AddPaymentToUserButton()
+        {
+            var newPostPaymentToUserViewModel = new PostPaymentToUserViewModel(_adminEndpoints, _selectedUser);
+            bool? result = manager.ShowDialog(newPostPaymentToUserViewModel);
+        }
+
     }
 }

@@ -162,6 +162,8 @@
     <Compile Include="Models\IncomePost.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\PatchExpenseRequest.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PaymentPost.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserPatchRequest.cs" />
     <Compile Include="Models\UserRegisterRequest.cs" />
@@ -175,6 +177,8 @@
     <Compile Include="Requests\IExpensesEndpoint.cs" />
     <Compile Include="Requests\IIncomeEndpoints.cs" />
     <Compile Include="Requests\IncomeEndpoints.cs" />
+    <Compile Include="Requests\IPaymentEndpoints.cs" />
+    <Compile Include="Requests\PaymentEndpoints.cs" />
     <Compile Include="ViewModels\AdministratorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseCreatorViewModel.cs" />
     <Compile Include="ViewModels\ExpenseViewModel.cs" />
@@ -184,6 +188,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PostExpenseToUserViewModel.cs" />
+    <Compile Include="ViewModels\PostPaymentToUserViewModel.cs" />
     <Compile Include="ViewModels\UserPatchViewModel.cs" />
     <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
@@ -212,6 +217,9 @@
     </Compile>
     <Compile Include="Views\PostExpenseToUserView.xaml.cs">
       <DependentUpon>PostExpenseToUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PostPaymentToUserView.xaml.cs">
+      <DependentUpon>PostPaymentToUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserPatchView.xaml.cs">
       <DependentUpon>UserPatchView.xaml</DependentUpon>
@@ -282,6 +290,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PostExpenseToUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PostPaymentToUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

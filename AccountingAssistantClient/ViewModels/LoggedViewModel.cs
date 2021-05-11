@@ -16,12 +16,14 @@ namespace AccountingAssistantClient.ViewModels
         IIncomeEndpoints _incomeEndpoints;
         IWindowManager manager = new WindowManager();
         IAuthenticatedUser _authenticatedUser;
+        IPaymentEndpoints _paymentEndpoints;
 
-        public LoggedViewModel(IExpensesEndpoint expensesEndpoint, IIncomeEndpoints incomeEndpoints, IAuthenticatedUser authenticatedUser)
+        public LoggedViewModel(IExpensesEndpoint expensesEndpoint, IIncomeEndpoints incomeEndpoints, IAuthenticatedUser authenticatedUser, IPaymentEndpoints paymentEndpoints)
         {
             _expensesEndpoint = expensesEndpoint;
             _incomeEndpoints = incomeEndpoints;
             _authenticatedUser = authenticatedUser;
+            _paymentEndpoints = paymentEndpoints;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -29,6 +31,7 @@ namespace AccountingAssistantClient.ViewModels
             base.OnViewLoaded(view);
             await LoadExpenses();
             await LoadIncomes();
+            await LoadPayments();
         }
 
         private async Task LoadExpenses()
@@ -41,6 +44,12 @@ namespace AccountingAssistantClient.ViewModels
         {
             var incomesList = await _incomeEndpoints.GetUserIncomesAsync();
             Incomes = new BindingList<Income>(incomesList);
+        }
+
+        private async Task LoadPayments()
+        {
+            var paymentsList = await _paymentEndpoints.GetUserPaymentsAsync();
+            Payments = new BindingList<Payment>(paymentsList);
         }
 
         private BindingList<Expense> _expenses;
@@ -65,6 +74,18 @@ namespace AccountingAssistantClient.ViewModels
             }
         }
 
+        private BindingList<Payment> _payments;
+        public BindingList<Payment> Payments
+        {
+            get
+            { return _payments; }
+            set
+            {
+                _payments = value;
+                NotifyOfPropertyChange(() => Payments);
+            }
+        }
+
         private Expense _selectedExpense;
         public Expense SelectedExpense
         {
@@ -84,6 +105,17 @@ namespace AccountingAssistantClient.ViewModels
             {
                 _selectedIncome = value;
                 NotifyOfPropertyChange(() => SelectedIncome);
+            }
+        }
+
+        private Payment _selectedPayment;
+        public Payment SelectedPayment
+        {
+            get { return _selectedPayment; }
+            set
+            {
+                _selectedPayment = value;
+                NotifyOfPropertyChange(() => SelectedPayment);
             }
         }
 
@@ -169,6 +201,7 @@ namespace AccountingAssistantClient.ViewModels
         {
             await LoadExpenses();
             await LoadIncomes();
+            await LoadPayments();
         }
     }
 }

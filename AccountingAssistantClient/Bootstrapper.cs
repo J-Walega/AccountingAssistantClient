@@ -30,7 +30,8 @@ namespace AccountingAssistantClient
             _container.Instance(_container)
                 .PerRequest<IExpensesEndpoint, ExpensesEndpoint>()
                 .PerRequest<IAdminEndpoints, AdminEndpoints>()
-                .PerRequest<IIncomeEndpoints, IncomeEndpoints>();
+                .PerRequest<IIncomeEndpoints, IncomeEndpoints>()
+                .PerRequest<IPaymentEndpoints, PaymentEndpoints>();
              
 
             _container

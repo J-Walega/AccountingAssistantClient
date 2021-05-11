@@ -11,5 +11,6 @@ namespace AccountingAssistantClient.Requests
         Task<bool> RegisterUserAsync(UserRegisterRequest request);
         Task<bool> DeleteSelectedUserAsync(User user);
         Task<bool> PatchSelectedUserAsync(UserPatchRequest request);
+        Task<bool> PostPaymentToUser(PaymentPost payment);
     }
 }
